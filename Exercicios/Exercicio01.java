@@ -4,121 +4,92 @@ import java.util.Scanner;
 public class Exercicio01 {
   public static void main (String[] args){
 
+
     
-    
-    Scanner NomeFunc = new Scanner(System.in);
+    Scanner Scanner1 = new Scanner(System.in);
         System.out.println("Insira seu nome: ");  
-        String Nome = NomeFunc.nextLine();
+        String Nome = Scanner1.nextLine();
 
-        Scanner HorasTrab = new Scanner(System.in);
+        Scanner Scanner2 = new Scanner(System.in);
         System.out.println("Insira suas horas de trabalho: ");  
-        int Horas = HorasTrab.nextInt();
+        int Horas = Scanner2.nextInt();
 
-
-        Scanner Salar = new Scanner(System.in);
-        System.out.println("Insira seu salario: ");  
-        int Salario = Salar.nextInt();
-
-        Scanner VporH = new Scanner(System.in);
+        Scanner Scanner3 = new Scanner(System.in);
         System.out.println("Insira seu salario por hora: ");  
-        float VporHora = VporH.nextFloat();
+        float VporHora = Scanner3.nextFloat();
 
-        Scanner Filho14 = new Scanner(System.in);
+        Scanner Scanner4 = new Scanner(System.in);
         System.out.println("Insira a quantidade de seus filhos de idade inferior a 14 anos: ");  
-        int Finf14 = Filho14.nextInt();
+        int Filho14 = Scanner4.nextInt();
 
-
-        Scanner Suaidade = new Scanner(System.in);
+        Scanner Scanner5 = new Scanner(System.in);
         System.out.println("Insira a sua iadade: ");  
-        int Idade = Suaidade.nextInt();
+        int idade = Scanner5.nextInt();
 
-        Scanner TempoServ = new Scanner(System.in);
+        Scanner Scanner6 = new Scanner(System.in);
         System.out.println("Insira seu tempo de serviço (Em anos): ");  
-        int Tempo = TempoServ.nextInt();
+        int TempoServ = Scanner6.nextInt();
 
-        Scanner SalarFam = new Scanner(System.in);
+        Scanner Scanner7 = new Scanner(System.in);
         System.out.println("Insira o valor do salario familia por filho:  ");  
-        int Familia = SalarFam.nextInt();
+        int SalarFamilia = Scanner7.nextInt();
 
         
 
-    NomeFunc.close();
-    Salar.close();
-    VporH.close();
-    Filho14.close();
-    Suaidade.close();
-    TempoServ.close();
-    SalarFam.close();
+     int SalarBrt = (Horas/VporHora); 
+     int INPS = ((SalarBrt/100)*8.5);
+     int SalarioFam = (SalarFamilia * Filho14);
+     int IR = 0;
+     int Adic = 0;
+     int Adic2 = 0;
+     int SalarLiq = (SalarBrt + Adic + Adic2 + SalarFam - Imposto);
 
-    int  SalarBrt = (byte) Horas/VporHora ; 
-    int SalarioFam = Familia * Finf14;
-    int IR;
-    int Adic;
-    int Adic2;
 
+   
     if (SalarBrt < 1500) {
-        Int IR = (SalarBrt/100*15);
+        IR = ((SalarBrt/100)*15);
         System.out.println("Seu Imposto de renda" + IR);
-    } if else (SalarBrt > 500) {
-        Int IR = (SalarBrt/100*8.5);
+    } else if (SalarBrt > 500) {
+         IR = ((SalarBrt/100)*8);
         System.out.println("Seu Imposto de renda " + IR);
 
-    } else (SalarBrt = 500) {
+    } else  (SalarBrt = 500) {
         System.out.println("Seu Imposto de renda: 0" );
     }
 
+
     if (Idade < 40){
-      int Adic = (Idade/100*2);
+       Adic = ((SalarBrt/100)*2);
       System.out.println("Seus adcionais:" + Adic);
-    }  if else ( Idade > 15){
-        int Adic2 = (Idade/100*3.5);
+    }  
+   
+
+
+    if  ( TempoServ > 15){
+        int Adic2 = ((Idade/100)*3.5);
         System.out.println("Seus adcionais: " + Adic2);
-    } else ()
+    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30){
+        int Adic2 = ((SalarBrt/100)*1.5);
+        System.out.println("Seus adcionais: " + Adic2)
+    }
 
 
 
+System.out.println("Nome do funcionario: " + Nome);
+System.out.println("Valor do salario liquido: " + SalarLiq);
+System.out.println("Valor do salario bruto: " + SalarBrt);
+System.out.println("Valor total dos descontos: " + (Imposto + INPS));
+System.out.println("Valor total dos adcionais " + (Adic + Adic2));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//FINAL!!!!
- System.out.println("Nome: " + Nome);        
- System.out.println("Salario: " + Salario); 
- System.out.println("Salario por hora: " + VporHora);     
- System.out.println("Flho(s) com menos de 14: " + Finf14);
-System.out.println("Sua idade: " + Idade);
-System.out.println("Seu tempo de serviço (em anos): " + Tempo);
-System.out.println("Valor de salario familia po filho: " + Familia);
-
+    Scanner1.close();
+    Scanner2.close();
+    Scanner3.close();
+    Scanner4.close();
+    Scanner5.close();
+    Scanner6.close();
+    Scanner7.close();
 
     }
     }
+
