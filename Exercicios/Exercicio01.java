@@ -36,13 +36,13 @@ public class Exercicio01 {
 
         
 
-     int SalarBrt = (Horas/VporHora); 
-     int INPS = ((SalarBrt/100)*8.5);
+     int SalarBrt = (byte) (Horas/VporHora); // vezes ??
+     int INPS =  (SalarBrt/100)*8.5; // Erro (Type mismatch: cannot convert from double to int)
      int SalarioFam = (SalarFamilia * Filho14);
      int IR = 0;
      int Adic = 0;
      int Adic2 = 0;
-     int SalarLiq = (SalarBrt + Adic + Adic2 + SalarFam - Imposto);
+     int SalarLiq = (SalarBrt + Adic + Adic2 + SalarioFam - INPS);
 
 
    
@@ -53,12 +53,12 @@ public class Exercicio01 {
          IR = ((SalarBrt/100)*8);
         System.out.println("Seu Imposto de renda " + IR);
 
-    } else  (SalarBrt = 500) {
+    } else (SalarBrt == 500) { // Erro (The left-hand side of an assignment must be a variable)
         System.out.println("Seu Imposto de renda: 0" );
     }
 
 
-    if (Idade < 40){
+    if (idade < 40){
        Adic = ((SalarBrt/100)*2);
       System.out.println("Seus adcionais:" + Adic);
     }  
@@ -66,11 +66,11 @@ public class Exercicio01 {
 
 
     if  ( TempoServ > 15){
-        int Adic2 = ((Idade/100)*3.5);
+        int Adic2 = (idade/100)*3.5; // Erro (Type mismatch: cannot convert from double to int)
         System.out.println("Seus adcionais: " + Adic2);
-    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30){
-        int Adic2 = ((SalarBrt/100)*1.5);
-        System.out.println("Seus adcionais: " + Adic2)
+    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30){ // Erro (The left-hand side of an assignment must be a variable)
+         Adic2 = (SalarBrt/100)*1.5; // Erro (Type mismatch: cannot convert from double to int)
+        System.out.println("Seus adcionais: " + Adic2);
     }
 
 
@@ -78,7 +78,7 @@ public class Exercicio01 {
 System.out.println("Nome do funcionario: " + Nome);
 System.out.println("Valor do salario liquido: " + SalarLiq);
 System.out.println("Valor do salario bruto: " + SalarBrt);
-System.out.println("Valor total dos descontos: " + (Imposto + INPS));
+System.out.println("Valor total dos descontos: " +  INPS ) ;
 System.out.println("Valor total dos adcionais " + (Adic + Adic2));
 
 

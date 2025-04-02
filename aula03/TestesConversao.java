@@ -8,7 +8,7 @@ class TestesConversao {
     int userScore = 100;
     float percentage = (float) userScore / maxScore * 100.0f;
     System.out.println(""); 
-    userName = myObj.nextLine();   
+    String userName = myObj.nextLine();   
 
     System.out.println("User's percentage is " + percentage);]
   }
