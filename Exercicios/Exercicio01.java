@@ -16,7 +16,7 @@ public class Exercicio01 {
 
         Scanner Scanner3 = new Scanner(System.in);
         System.out.println("Insira seu salario por hora: ");  
-        float VporHora = Scanner3.nextFloat();
+        int VporHora = Scanner3.nextFloat();
 
         Scanner Scanner4 = new Scanner(System.in);
         System.out.println("Insira a quantidade de seus filhos de idade inferior a 14 anos: ");  
@@ -36,30 +36,32 @@ public class Exercicio01 {
 
         
 
-     int SalarBrt = (byte) (Horas/VporHora); // vezes ??
-     int INPS =  (SalarBrt/100)*8.5; // Erro (Type mismatch: cannot convert from double to int)
+     int SalarBrt = (Horas*VporHora); 
+     int INPS = (SalarBrt/100)*8.5; // Erro (Type mismatch: cannot convert from double to int)
      int SalarioFam = (SalarFamilia * Filho14);
-     int IR = 0;
-     int Adic = 0;
-     int Adic2 = 0;
+     int IR ;
+     int Adic ;
+     int Adic2 ;
      int SalarLiq = (SalarBrt + Adic + Adic2 + SalarioFam - INPS);
 
 
    
     if (SalarBrt < 1500) {
-        IR = ((SalarBrt/100)*15);
+        IR = (SalarBrt/100)*15;
         System.out.println("Seu Imposto de renda" + IR);
-    } else if (SalarBrt > 500) {
-         IR = ((SalarBrt/100)*8);
+    } 
+    else if (SalarBrt > 500) {
+         IR = (SalarBrt/100)*8;
         System.out.println("Seu Imposto de renda " + IR);
-
-    } else (SalarBrt == 500) { // Erro (The left-hand side of an assignment must be a variable)
+    }
+     else (SalarBrt == 500); { // Erro (not a statement)
+        IR = 0;
         System.out.println("Seu Imposto de renda: 0" );
     }
 
 
     if (idade < 40){
-       Adic = ((SalarBrt/100)*2);
+       Adic = (SalarBrt/100)*2;
       System.out.println("Seus adcionais:" + Adic);
     }  
    
@@ -68,7 +70,7 @@ public class Exercicio01 {
     if  ( TempoServ > 15){
         int Adic2 = (idade/100)*3.5; // Erro (Type mismatch: cannot convert from double to int)
         System.out.println("Seus adcionais: " + Adic2);
-    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30){ // Erro (The left-hand side of an assignment must be a variable)
+    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30); { // Erro (not a statement)
          Adic2 = (SalarBrt/100)*1.5; // Erro (Type mismatch: cannot convert from double to int)
         System.out.println("Seus adcionais: " + Adic2);
     }

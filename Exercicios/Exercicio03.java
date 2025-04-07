@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 
@@ -28,14 +29,14 @@ if (A*A == B*B + C*C) {
 } else if (A*A > B*B  + C*C) {
    System.out.println("Formam um triangulo obtusangulo");
    return;
-} else (A == B == C) { // ERRO (The left-hand side of an assignment must be a variable) 
+} else ( A*A  <  B*B  + C*C); { // ERRO (The left-hand side of an assignment must be a variable) 
   System.out.println("Forma um triangulo acutangulo");
 }
 
-if (A == B && B == C) {
+if (A == B && B == C && A == C) {
   System.out.println("Forma um triangulo equilatero");
   return;
-} else if (A == B || A == C) {
+} else  (A == B || B == C || A == C); {
   System.out.println("Formam um triangulo isosceles");
 }
 

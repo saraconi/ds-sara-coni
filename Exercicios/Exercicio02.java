@@ -1,37 +1,36 @@
 
 import java.util.Scanner;
-
 public class Exercicio02 {
   public static void main (String[] args){
- Scanner scanner = new Scanner (System.in);
 
- System.out.println ("Seu codigo:  ");
-  String codigo = scanner.nextLine();
 
- System.out.println ("Seu sexo: ");
-  String sexo = scanner.nextLine();
+    Scanner entrada = new Scanner (System.in);
 
- System.out.println("Seu tempo de trabalho: ");
-  int tempo = scanner.nextInt();
+    int bonus; 
 
- System.out.println("Seu salario: ");
-  int salario = scanner.nextInt();
+    System.out.println ("Seu sexo: ");
+    String sexo = entrada.nextLine();
 
- scanner.close();
+    System.out.println("Seu tempo de trabalho: ");
+    int tempo = entrada.nextInt();
 
-if (sexo == "masculino" && tempo > 15) {
-    int bonus = (salario/100)*20;
+    System.out.println("Seu salario: ");
+    int salario = entrada.nextInt();
+
+   entrada.close();
+
+
+   if (sexo.equalsIgnoreCase("M") && tempo > 15) {
+     bonus = (salario/100)*20;
+   }
+   else if  (sexo.equalsIgnoreCase("F") && tempo > 10); {
+      bonus = (salario/100)*25;
+   } 
+   else {
+      bonus = (salario/100)*100;
+   }
+
+  }
 }
-else if (sexo == "feminino" && tempo > 10) {
-    int bonus = (salario/100)*25;
-} 
-else (tempo <= 10) { // Erro (The left-hand side of an assignment must be a variable) 
-    int bonus = (salario/100)*100;
-} 
 
-// OS DEMAIS FUNCIONARIOS DEVEM RECBER BONUS DE 100% (?????????) (como fazer isso?)
-
-
-  }
-
-  }
+  
