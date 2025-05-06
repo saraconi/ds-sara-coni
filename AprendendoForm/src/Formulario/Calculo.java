@@ -38,10 +38,10 @@ public class Calculo extends javax.swing.JFrame {
         btn_Novo = new javax.swing.JButton();
         btn_Limpar = new javax.swing.JButton();
         btn_Sair = new javax.swing.JButton();
-        btn_Comparacao = new javax.swing.JButton();
         txtfield_N1 = new javax.swing.JTextField();
         txtfield_N2 = new javax.swing.JTextField();
         txtfield_Resultado = new javax.swing.JTextField();
+        btn_Comparacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,8 +113,7 @@ public class Calculo extends javax.swing.JFrame {
                             .addGap(28, 28, 28))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(txt_Resul)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(txt_Resul)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -122,8 +121,7 @@ public class Calculo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_Soma)
                                 .addGap(20, 20, 20)
-                                .addComponent(btn_Subtracao)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(btn_Subtracao)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -136,9 +134,9 @@ public class Calculo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_Sair)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addComponent(btn_Comparacao)
-                                .addGap(17, 17, 17))
+                                .addGap(33, 33, 33)
+                                .addComponent(btn_Comparacao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(33, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_Retornar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,8 +175,8 @@ public class Calculo extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Limpar)
                     .addComponent(btn_Sair)
-                    .addComponent(btn_Comparacao)
-                    .addComponent(btn_Novo))
+                    .addComponent(btn_Novo)
+                    .addComponent(btn_Comparacao))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -207,10 +205,6 @@ public class Calculo extends javax.swing.JFrame {
              txt_Resul.setText("");
     }//GEN-LAST:event_btn_LimparActionPerformed
 
-    private void btn_ComparacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ComparacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ComparacaoActionPerformed
-
     private void btn_SomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SomaActionPerformed
         // TODO add your handling code here:
         int x, y, z; // Variáveis de apoio
@@ -228,8 +222,12 @@ public class Calculo extends javax.swing.JFrame {
 
     private void btn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairActionPerformed
         // TODO add your handling code here:
-        System.exit(0)
+        System.exit(0);
     }//GEN-LAST:event_btn_SairActionPerformed
+
+    private void btn_ComparacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ComparacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ComparacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,10 +261,11 @@ public class Calculo extends javax.swing.JFrame {
             public void run() {
                 new Calculo().setVisible(true);
         }  
-            });
-              
-       
+            }
+        ) ;
+             }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Comparacao;
     private javax.swing.JButton btn_Divisao;
