@@ -1,97 +1,66 @@
 import java.util.Scanner;
 
-
 public class Exercicio01 {
-  public static void main (String[] args){
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Insira seu nome: ");
+        String nome = scanner.nextLine();
 
-    
-    Scanner Scanner1 = new Scanner(System.in);
-        System.out.println("Insira seu nome: ");  
-        String Nome = Scanner1.nextLine();
+        System.out.print("Insira suas horas de trabalho: ");
+        int horas = scanner.nextInt();
 
-        Scanner Scanner2 = new Scanner(System.in);
-        System.out.println("Insira suas horas de trabalho: ");  
-        int Horas = Scanner2.nextInt();
+        System.out.print("Insira seu salario por hora: ");
+        float vPorHora = scanner.nextFloat();
 
-        Scanner Scanner3 = new Scanner(System.in);
-        System.out.println("Insira seu salario por hora: ");  
-        int VporHora = Scanner3.nextFloat();
+        System.out.print("Insira a quantidade de filhos com menos de 14 anos: ");
+        int filhos14 = scanner.nextInt();
 
-        Scanner Scanner4 = new Scanner(System.in);
-        System.out.println("Insira a quantidade de seus filhos de idade inferior a 14 anos: ");  
-        int Filho14 = Scanner4.nextInt();
+        System.out.print("Insira a sua idade: ");
+        int idade = scanner.nextInt();
 
-        Scanner Scanner5 = new Scanner(System.in);
-        System.out.println("Insira a sua iadade: ");  
-        int idade = Scanner5.nextInt();
+        System.out.print("Insira seu tempo de serviço (em anos): ");
+        int tempoServ = scanner.nextInt();
 
-        Scanner Scanner6 = new Scanner(System.in);
-        System.out.println("Insira seu tempo de serviço (Em anos): ");  
-        int TempoServ = Scanner6.nextInt();
+        System.out.print("Insira o valor do salário família por filho: ");
+        float salarioFamilia = scanner.nextFloat();
 
-        Scanner Scanner7 = new Scanner(System.in);
-        System.out.println("Insira o valor do salario familia por filho:  ");  
-        int SalarFamilia = Scanner7.nextInt();
+        float SalarioBruto = horas * vPorHora;
+        float INPS = (SalarioBruto / 100) * 8.5f;
+        float SalarioFam = salarioFamilia * filhos14;
 
-        
+        float IR;
+        if (SalarioBruto < 500) {
+            IR = 0;
+        } else if (SalarioBruto <= 1500) {
+            IR = (SalarioBruto / 100) * 8;
+        } else {
+            IR = (SalarioBruto / 100) * 15;
+        }
 
-     int SalarBrt = (Horas*VporHora); 
-     int INPS = (SalarBrt/100)*8.5; // Erro (Type mismatch: cannot convert from double to int)
-     int SalarioFam = (SalarFamilia * Filho14);
-     int IR ;
-     int Adic ;
-     int Adic2 ;
-     int SalarLiq = (SalarBrt + Adic + Adic2 + SalarioFam - INPS);
+        float Adic = 0;
+        if (idade < 40) {
+            Adic = (SalarioBruto / 100) * 2;
+        }
 
+        float Adic2 = 0;
+        if (tempoServ > 15) {
+            Adic2 = (idade / 100f) * 3.5f;
+        } else if (tempoServ > 5 && tempoServ <= 15 && idade > 30) {
+            Adic2 = (SalarioBruto / 100) * 1.5f;
+        }
 
-   
-    if (SalarBrt < 1500) {
-        IR = (SalarBrt/100)*15;
-        System.out.println("Seu Imposto de renda" + IR);
-    } 
-    else if (SalarBrt > 500) {
-         IR = (SalarBrt/100)*8;
-        System.out.println("Seu Imposto de renda " + IR);
+        float SalarioLiquido = SalarioBruto + Adic + Adic2 + SalarioFam - INPS - IR;
+
+        System.out.println("Nome do funcionário: " + nome);
+        System.out.println("Salário bruto: R$ " + SalarioBruto);
+        System.out.println("Salário família: R$ " + SalarioFam);
+        System.out.println("INPS: R$ " + INPS);
+        System.out.println("Imposto de Renda: R$ " + IR);
+        System.out.println("Adicional por idade: R$ " + Adic);
+        System.out.println("Adicional por tempo de serviço: R$ " + Adic2);
+        System.out.println("Salário líquido: R$ " + SalarioLiquido);
+
+        scanner.close();
     }
-     else (SalarBrt == 500); { // Erro (not a statement)
-        IR = 0;
-        System.out.println("Seu Imposto de renda: 0" );
-    }
-
-
-    if (idade < 40){
-       Adic = (SalarBrt/100)*2;
-      System.out.println("Seus adcionais:" + Adic);
-    }  
-   
-
-
-    if  ( TempoServ > 15){
-        int Adic2 = (idade/100)*3.5; // Erro (Type mismatch: cannot convert from double to int)
-        System.out.println("Seus adcionais: " + Adic2);
-    } else (TempoServ <= 15 && TempoServ > 5 && idade > 30); { // Erro (not a statement)
-         Adic2 = (SalarBrt/100)*1.5; // Erro (Type mismatch: cannot convert from double to int)
-        System.out.println("Seus adcionais: " + Adic2);
-    }
-
-
-
-System.out.println("Nome do funcionario: " + Nome);
-System.out.println("Valor do salario liquido: " + SalarLiq);
-System.out.println("Valor do salario bruto: " + SalarBrt);
-System.out.println("Valor total dos descontos: " +  INPS ) ;
-System.out.println("Valor total dos adcionais " + (Adic + Adic2));
-
-
-    Scanner1.close();
-    Scanner2.close();
-    Scanner3.close();
-    Scanner4.close();
-    Scanner5.close();
-    Scanner6.close();
-    Scanner7.close();
-
-    }
-    }
-
+}

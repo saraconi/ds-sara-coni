@@ -1,36 +1,30 @@
-
 import java.util.Scanner;
+
 public class Exercicio02 {
-  public static void main (String[] args){
+  public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
 
-
-    Scanner entrada = new Scanner (System.in);
-
-    int bonus; 
-
-    System.out.println ("Seu sexo: ");
+    System.out.print("Seu sexo (M/F): ");
     String sexo = entrada.nextLine();
 
-    System.out.println("Seu tempo de trabalho: ");
+    System.out.print("Seu tempo de trabalho (em anos): ");
     int tempo = entrada.nextInt();
 
-    System.out.println("Seu salario: ");
+    System.out.print("Seu salário: ");
     int salario = entrada.nextInt();
 
-   entrada.close();
+    entrada.close();
 
+    int bonus;
 
-   if (sexo.equalsIgnoreCase("M") && tempo > 15) {
-     bonus = (salario/100)*20;
-   }
-   else if  (sexo.equalsIgnoreCase("F") && tempo > 10); {
-      bonus = (salario/100)*25;
-   } 
-   else {
-      bonus = (salario/100)*100;
-   }
+    if (sexo.equalsIgnoreCase("M") && tempo > 15) {
+      bonus = (salario / 100) * 20;
+    } else if (sexo.equalsIgnoreCase("F") && tempo > 10) {
+      bonus = (salario / 100) * 25;
+    } else {
+      bonus = (salario / 100) * 100;
+    }
 
+    System.out.println("Este é o seu bonus: R$ " + bonus);
   }
 }
-
-  
