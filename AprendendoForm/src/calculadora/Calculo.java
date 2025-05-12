@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Formulario;
+package calculadora;
 
 /**
  *
@@ -45,16 +45,21 @@ public class Calculo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Programação de Computadores"));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Programação de Computadores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setToolTipText("");
 
+        txt_N1.setForeground(new java.awt.Color(255, 255, 255));
         txt_N1.setText("N1");
 
+        txt_N2.setForeground(new java.awt.Color(255, 255, 255));
         txt_N2.setText("N2");
 
+        txt_Resul.setForeground(new java.awt.Color(255, 255, 255));
         txt_Resul.setText("Resultado");
 
+        btn_Soma.setForeground(new java.awt.Color(255, 255, 255));
         btn_Soma.setText("+");
         btn_Soma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,12 +67,16 @@ public class Calculo extends javax.swing.JFrame {
             }
         });
 
+        btn_Subtracao.setForeground(new java.awt.Color(255, 255, 255));
         btn_Subtracao.setText("-");
 
+        btn_Multiplica.setForeground(new java.awt.Color(255, 255, 255));
         btn_Multiplica.setText("*");
 
+        btn_Divisao.setForeground(new java.awt.Color(255, 255, 255));
         btn_Divisao.setText("/");
 
+        btn_Retornar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Retornar.setText("Retornar");
         btn_Retornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,8 +84,15 @@ public class Calculo extends javax.swing.JFrame {
             }
         });
 
+        btn_Novo.setForeground(new java.awt.Color(255, 255, 255));
         btn_Novo.setText("Novo");
+        btn_Novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_NovoActionPerformed(evt);
+            }
+        });
 
+        btn_Limpar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Limpar.setText("Limpar");
         btn_Limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +100,7 @@ public class Calculo extends javax.swing.JFrame {
             }
         });
 
+        btn_Sair.setForeground(new java.awt.Color(255, 255, 255));
         btn_Sair.setText("Sair");
         btn_Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +108,13 @@ public class Calculo extends javax.swing.JFrame {
             }
         });
 
+        txtfield_N1.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtfield_N2.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtfield_Resultado.setBackground(new java.awt.Color(255, 255, 255));
+
+        btn_Comparacao.setForeground(new java.awt.Color(255, 255, 255));
         btn_Comparacao.setText("Comparação");
         btn_Comparacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +220,9 @@ public class Calculo extends javax.swing.JFrame {
 
     private void btn_RetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RetornarActionPerformed
         // TODO add your handling code here:
+        Abertura Formulario = new Outroform ();
+        frame1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btn_RetornarActionPerformed
 
     private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
@@ -228,6 +255,12 @@ public class Calculo extends javax.swing.JFrame {
     private void btn_ComparacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ComparacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ComparacaoActionPerformed
+
+    private void btn_NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NovoActionPerformed
+        // TODO add your handling code here:
+        Habilitar(); 
+    }//GEN-LAST:event_btn_NovoActionPerformed
+
 
     /**
      * @param args the command line arguments
