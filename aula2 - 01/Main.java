@@ -1,4 +1,4 @@
-import.java.util.Scanner;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,12 +8,12 @@ public class Main {
          String nome = Nome.nextString();
 
       Scanner Email = new Scanner(System.in);
-      System.out.println("Insira seu email: ");
-      String email = Email.nextString();
+        System.out.println("Insira seu email: ");
+          String email = Email.nextString();
 
       Scanner Idade = new Scanner(System.in);
-      Syatem.out.println("Insira sua idade: ");
-      int idade = Idade.nextInt();
+        Syatem.out.println("Insira sua idade: ");
+          int idade = Idade.nextInt();
 
       Nome.close();
       Email.close();
@@ -24,7 +24,7 @@ public class Main {
 // Criar metodo para inserir os dados do usuario, usando a classe Scanner 
  
 
----------------------------------------------------------------------------------------
+
 
 
  //public class Main {
