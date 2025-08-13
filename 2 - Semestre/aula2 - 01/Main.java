@@ -2,22 +2,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-      Scanner Nome = new Scanner(System.in);
+      Scanner scanner = new Scanner (System.in);
+      
         System.out.println("Insira seu nome: ");  
-         String nome = Nome.nextString();
+         String nome = scanner.nextLine();
 
-      Scanner Email = new Scanner(System.in);
         System.out.println("Insira seu email: ");
-          String email = Email.nextString();
+          String email = scanner.nextLine();
 
-      Scanner Idade = new Scanner(System.in);
-        Syatem.out.println("Insira sua idade: ");
-          int idade = Idade.nextInt();
+        System.out.println("Insira sua idade: ");
+          int idade = scanner.nextInt();
 
-      Nome.close();
-      Email.close();
-      Idade.close();
+
+      scanner.close();
     }
 }   
 
