@@ -15,7 +15,12 @@ public class Main {
 
 
       scanner.close();
+
+      nome.exibirInfo();
+      email.exibirInfo();
+      idade.exibirInfo();
     }
+
 }   
 
 // Criar metodo para inserir os dados do usuario, usando a classe Scanner 
