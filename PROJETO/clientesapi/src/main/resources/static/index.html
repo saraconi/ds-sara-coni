@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro de Clientes - Loja de Jogos</title>
+    <style>
+        /* Reset básico */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        .container {
+            background: #1c1f26;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            padding: 30px 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #50c878; /* verde brilhante */
+            text-shadow: 0 0 10px #50c878;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            background-color: #2c5364;
+        }
+        button {
+            background-color: #50c878;
+            color: #1c1f26;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 12px 0;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            letter-spacing: 1.2px;
+        }
+        button:hover {
+            background-color: #3a9d5f;
+        }
+        .error {
+            background-color: #ff4c4c;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .success {
+            background-color: #50c878;
+            color: #1c1f26;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .clientes-list {
+            margin-top: 30px;
+        }
+        .clientes-list h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #50c878;
+            text-shadow: 0 0 6px #50c878;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #283747;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #3a3f47;
+            font-size: 0.95rem;
+        }
+        th {
+            background-color: #1c1f26;
+            font-weight: 700;
+        }
+        tr:hover {
+            background-color: #394a56;
+            cursor: pointer;
+        }
+        .btn-delete {
+            background-color: #ff4c4c;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.25s ease;
+            font-weight: 600;
+        }
+        .btn-delete:hover {
+            background-color: #e03e3e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cadastro de Clientes</h1>
+
+    <div id="mensagem"></div>
+
+    <form id="formCliente">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Digite o email" required />
+
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="Digite o telefone" required pattern="[0-9]{10,15}" title="Digite o telefone somente com números, entre 10 a 15 dígitos" />
+
+        <button type="submit">Cadastrar Cliente</button>
+    </form>
+
+    <div class="clientes-list">
+        <h2>Clientes Cadastrados</h2>
+        <table id="tabelaClientes">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="corpoTabela"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // URL base da API
+    const API_URL = '/api/clientes';
+
+    // Elementos DOM
+    const form = document.getElementById('formCliente');
+    const mensagemDiv = document.getElementById('mensagem');
+    const corpoTabela = document.getElementById('corpoTabela');
+
+    // Função para mostrar mensagens (erro ou sucesso)
+    function mostrarMensagem(texto, tipo) {
+        mensagemDiv.innerHTML = `<div class="${tipo}">${texto}</div>`;
+        setTimeout(() => { mensagemDiv.innerHTML = ''; }, 4000);
+    }
+
+    // Função para limpar o formulário
+    function limparFormulario() {
+        form.nome.value = '';
+        form.email.value = '';
+        form.telefone.value = '';
+    }
+
+    // Função para criar linha da tabela
+    function criarLinha(cliente) {
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+            <td>${cliente.nome}</td>
+            <td>${cliente.email}</td>
+            <td>${cliente.telefone}</td>
+            <td><button class="btn-delete" data-id="${cliente.id}">Excluir</button></td>
+        `;
+
+        // Evento para deletar cliente ao clicar no botão excluir
+        tr.querySelector('.btn-delete').addEventListener('click', () => {
+            if (confirm(`Deseja realmente excluir o cliente "${cliente.nome}"?`)) {
+                deletarCliente(cliente.id);
+            }
+        });
+
+        return tr;
+    }
+
+    // Função para listar clientes na tabela
+    async function listarClientes() {
+        try {
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('Falha ao buscar clientes.');
+            const clientes = await response.json();
+
+            corpoTabela.innerHTML = '';
+            clientes.forEach(cliente => {
+                corpoTabela.appendChild(criarLinha(cliente));
+            });
+        } catch (error) {
+            mostrarMensagem(error.message, 'error');
+        }
+    }
+
+    // Função para cadastrar cliente
+    async function cadastrarCliente(cliente) {
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cliente)
+            });
+
+            if (response.status === 400) {
+                const erros = await response.json();
+                let mensagensErro = Object.values(erros).join('<br>');
+                mostrarMensagem(mensagensErro, 'error');
+                return;
+            }
+
+            if (!response.ok) throw new Error('Erro ao cadastrar cliente.');
+
+            mostrarMensagem('Cliente cadastrado com sucesso!', 'success');
+            limparFormulario();
+            listarClientes();
+
+        } catch (error) {
+            mostrarMensagem(error.message, 'error');
+        }
+    }
+
+    // Função para deletar cliente
+    async function deletarCliente(id) {
+        try {
+            const response = await fetch(`${API_URL}/${id}`, {
+                method: 'DELETE'
+            });
+            if (!response.ok) throw new Error('Erro ao excluir cliente.');
+
+            mostrarMensagem('Cliente excluído com sucesso!', 'success');
+            listarClientes();
+        } catch (error) {
+            mostrarMensagem(error.message, 'error');
+        }
+    }
+
+    // Evento submit do formulário
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const novoCliente = {
+            nome: form.nome.value.trim(),
+            email: form.email.value.trim(),
+            telefone: form.telefone.value.trim()
+        };
+
+        // Validação extra simples no frontend (opcional)
+        if (!novoCliente.nome || !novoCliente.email || !novoCliente.telefone) {
+            mostrarMensagem('Preencha todos os campos corretamente.', 'error');
+            return;
+        }
+
+        cadastrarCliente(novoCliente);
+    });
+
+    // Ao carregar a página, lista clientes
+    window.addEventListener('load', listarClientes);
+</script>
+
+</body>
+</html>
