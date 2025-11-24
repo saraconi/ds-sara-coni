@@ -22,4 +22,25 @@ public class Cliente {
 
     @NotBlank(message = "Telefone é obrigatório")
     private String telefone;
+
+    public Object getNome() {
+        return nome;
+    }
+
+    public void setNome(Object nome) {
+    }
+
+    public Object getEmail() {
+        return email;
+    }
+
+    public void setEmail(Object email) {
+    }
+
+    public Object getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Object telefone) {
+    }
 }

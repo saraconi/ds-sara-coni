@@ -1,4 +1,4 @@
-package com.minhaloja.clientesapi.controller;
+package com.minhaloja.clientesapi.Controller;
 
 import com.minhaloja.clientesapi.model.Cliente;
 import com.minhaloja.clientesapi.service.ClienteService;

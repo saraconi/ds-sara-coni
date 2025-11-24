@@ -1,7 +1,7 @@
 package com.minhaloja.clientesapi.service;
 
 import com.minhaloja.clientesapi.model.Cliente;
-import com.minhaloja.clientesapi.Repository.ClienteRepository;
+import com.minhaloja.clientesapi.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

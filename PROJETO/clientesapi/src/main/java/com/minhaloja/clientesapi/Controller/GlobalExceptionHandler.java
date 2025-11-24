@@ -1,4 +1,4 @@
-package com.minhaloja.clientesapi.controller;
+package com.minhaloja.clientesapi.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

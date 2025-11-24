@@ -1,4 +1,4 @@
-package com.minhaloja.clientesapi.Repository;
+package com.minhaloja.clientesapi.repository;
 
 
 
