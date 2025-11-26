@@ -1,0 +1,6 @@
+CREATE TABLE atleta (
+id_atleta BIGINT(20) NOT NULL AUTO_INCREMENT,
+nome VARCHAR(100) NOT NULL,
+idade INT NOT NULL,
+posicao VARCHAR(100) NOT NULL,
+PRIMARY KEY (`id_atleta`));
