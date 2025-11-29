@@ -8,11 +8,11 @@
 		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.projeto</groupId>
-	<artifactId>cadastro-usuario</artifactId>
+	<groupId>com.projetoescolar</groupId>
+	<artifactId>CadastroAtletas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cadastro-usuario</name>
-	<description>Cadastro de usuarios</description>
+	<name>CadastroAtletas</name>
+	<description>Cadastro de Atletas</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -36,9 +36,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -68,12 +74,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<annotationProcessorPaths>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>

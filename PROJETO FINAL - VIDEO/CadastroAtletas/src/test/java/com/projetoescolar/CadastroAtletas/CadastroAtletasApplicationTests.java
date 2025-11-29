@@ -1,10 +1,10 @@
-package com.projeto.cadastro_usuario;
+package com.projetoescolar.CadastroAtletas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CadastroUsuarioApplicationTests {
+class CadastroAtletasApplicationTests {
 
 	@Test
 	void contextLoads() {

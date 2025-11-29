@@ -1,13 +1,13 @@
-package com.projeto.cadastro_usuario;
+package com.projetoescolar.CadastroAtletas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CadastroUsuarioApplication {
+public class CadastroAtletasApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CadastroUsuarioApplication.class, args);
+		SpringApplication.run(CadastroAtletasApplication.class, args);
 	}
 
 }
